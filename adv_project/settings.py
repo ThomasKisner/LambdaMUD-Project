@@ -28,7 +28,10 @@ DEBUG = config('DEBUG', cast=bool)
 
 ALLOWED_HOSTS = []
 
+#PUSHER STUFF **CAN PUT IN .ENV LATER
+import pusher
 
+ 
 # Application definition
 
 INSTALLED_APPS = [
