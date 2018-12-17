@@ -87,7 +87,7 @@ def whisper(request):
     whisperRecipientUUID = whisperPlayerUUID(whisperRecipientArg)
     for whisperRecipient in whisperRecipientUUID: 
         pusher.trigger(f'p-channel-{whisperRecipientUUID}', u'broadcast', {'message': f'{player.user.username} says: {whisperMessage}'})
-    return JsonResponse({'name': player.user.username, 'saidmessage': f'{player.user.username} says: {whisperMessage} to {whisperRecipient}', safe=True)
+    return JsonResponse({'name': player.user.username, 'saidmessage': f'{player.user.username} says: {whisperMessage}', safe=True)
  
 
 
