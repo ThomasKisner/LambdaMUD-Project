@@ -75,6 +75,23 @@ def say(request):
     return JsonResponse({'name': player.user.username, 'saidmessage': f'{player.user.username} says: {saidmessage}', 'usersinroom': currentPlayerUUIDs}, safe=True)
  
 
+@csrf_exempt
+@api_view(["POST"])
+def whisper(request):
+    player = request.user.player
+    player_id = player.id
+    player_uuid = player.uuid
+    data = json.loads(request.body)
+    saidmessage = data['saidmessage']
+    whisperMessage = data['whisperMessage']
+    whisperRecipientUUID = whisperPlayerUUID(whisperRecipient)
+ 
+    currentPlayerUUIDs = room.allplayerUUIDs(player_id)
+    for whisperRecipientUUID: 
+        pusher.trigger(f'p-channel-{whisperRecipientUUID}', u'broadcast', {'message': f'{player.user.username} says: {whisperMessage}'})
+    return JsonResponse({'name': player.user.username, 'saidmessage': f'{player.user.username} says: {whisperMessage} to {whisperRecipient}', safe=True)
+ 
+
 
 @csrf_exempt
 @api_view(["POST"])
