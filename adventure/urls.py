@@ -5,6 +5,6 @@ urlpatterns = [
     url('init', api.initialize),
     url('move', api.move),
     url('say', api.say),
-    url('broadcast', api.broadcast)
+    url('broadcast', api.broadcast),
     url('whisper', api.whisper)
 ]
