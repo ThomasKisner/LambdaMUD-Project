@@ -37,7 +37,7 @@ class Room(models.Model):
         return [p.uuid for p in Player.objects.filter(currentRoom=self.id) if p.id != int(currentPlayerID)]
     def allplayerUUIDs(self, currentPlayerID):
         return [p.uuid for p in Player.objects.all()]
-    def whisperPlayerUUID(self, whisperRecipient):
+    def whisperPlayerUUID(self, whisperRecipientArg):
         return [p.uuid for p in Player.objects.all() if p.user.username==whisperRecipient]
 
 
