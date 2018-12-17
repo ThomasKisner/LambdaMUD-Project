@@ -82,7 +82,7 @@ def whisper(request):
     player_id = player.id
     player_uuid = player.uuid
     data = json.loads(request.body)
-    saidmessage = data['saidmessage']
+    whisperRecipient = data['whisperRecipient']
     whisperMessage = data['whisperMessage']
     whisperRecipientUUID = whisperPlayerUUID(whisperRecipient)
     for whisperRecipient in whisperRecipientUUID: 
